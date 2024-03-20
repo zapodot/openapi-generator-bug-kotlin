@@ -1,0 +1,7 @@
+.openapi-generator-ignore
+README.md
+build.gradle
+gradle.properties
+settings.gradle
+src/main/kotlin/org/zapodot/openapi/apis/StuffApi.kt
+src/main/kotlin/org/zapodot/openapi/models/Stuff.kt

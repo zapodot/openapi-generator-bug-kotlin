@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.zapodot</groupId>
+        <artifactId>openapi-generator-bug-kotlin</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>no.ks.fiks</groupId>
+    <artifactId>open-api-generated</artifactId>
+
+    <build>
+        <sourceDirectory>target/generated-sources/openapi/src/main/kotlin</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.openapitools</groupId>
+                <artifactId>openapi-generator-maven-plugin</artifactId>
+                <version>7.4.0</version>
+                <configuration>
+                    <inputSpec>${project.basedir}/src/main/resources/array-api.yaml</inputSpec>
+                    <generatorName>kotlin-server</generatorName>
+                    <library>jaxrs-spec</library>
+                    <packageName>org.zapodot.openapi</packageName>
+                    <configOptions>
+                        <serializationLibrary>jackson</serializationLibrary>
+                        <enumPropertyNaming>UPPERCASE</enumPropertyNaming>
+                        <interfaceOnly>true</interfaceOnly>
+                        <useBeanValidation>true</useBeanValidation>
+                        <useJakartaEe>true</useJakartaEe>
+                    </configOptions>
+                    <addCompileSourceRoot>true</addCompileSourceRoot>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-api-interface-and-models</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-test-junit5</artifactId>
+            <version>1.9.22</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib</artifactId>
+            <version>1.9.22</version>
+        </dependency>
+    </dependencies>
+
+</project>
